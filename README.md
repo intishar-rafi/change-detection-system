@@ -1,6 +1,6 @@
 # change-detection-system
 
-A proof-of-concept **multi-agent employee data sync system** built with **MCP (Model Context Protocol)**, **LangChain**, and **LangGraph**. It automatically detects changes made in an HR system and syncs them to a Payroll system — coordinated end-to-end by an LLM supervisor agent.
+A proof-of-concept **change detection system** for employee data, built with **MCP (Model Context Protocol)**, **LangChain**, and **LangGraph**. It watches an HR system for changes, detects them automatically, and syncs them through to a Payroll system — coordinated end-to-end by an LLM supervisor agent.
 
 ![demo](demo.gif)
 
@@ -61,7 +61,7 @@ change-detection-system/
 
 ```bash
 python3 -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\Activate.ps1
+source venv/bin/activate
 ```
 
 ### 2. Install dependencies
@@ -137,14 +137,6 @@ python payroll_agent.py
 - `employee_update_trigger` — fires on `UPDATE`, **only** when at least one tracked field actually changes (`WHEN OLD.<field> != NEW.<field>`). Setting a field to the same value it already had is a no-op and won't log anything.
 
 `detect_changes` (HR MCP tool) reads all rows in `employee_change_log` where `processed = FALSE`. `create_sync_payload` builds `sync_payload.json` from those rows and marks them `processed = TRUE`.
-
----
-
-## Notes / known limitations
-
-- This is a **POC**, not production software — no auth, no retries, no idempotency guarantees beyond the `processed` flag.
-- `scripts/add_update_employee.py` is a manual test harness standing in for a real HR application's write path — in production, any system writing to the `employees` table would trigger the same flow.
-- `payroll_mcp_server.py` exists but isn't wired into the current agent flow — `payroll_agent.py` reads `sync_payload.json` directly rather than going through that MCP server.
 
 ---
 
