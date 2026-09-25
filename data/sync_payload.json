@@ -1,0 +1,48 @@
+{
+  "source_system": "hr_system",
+  "target_system": "payroll_system",
+  "sync_timestamp": "2026-09-23T20:55:34.097242",
+  "total_changes": 1,
+  "changes": [
+    {
+      "log_id": 19,
+      "employee_id": "EMP001",
+      "change_type": "UPDATE",
+      "old_values": {
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "john.doe@company.com",
+        "department": "Engineering",
+        "position": "IT Manager",
+        "salary": 908000,
+        "status": "active"
+      },
+      "new_values": {
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "john.doe@company.com",
+        "department": "Engineering",
+        "position": "IT Lead",
+        "salary": 988000,
+        "status": "active"
+      },
+      "change_timestamp": "2026-09-23 18:54:33",
+      "current_employee_data": {
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "john.doe@company.com",
+        "department": "Engineering",
+        "position": "IT Lead",
+        "salary": 988000,
+        "status": "active"
+      }
+    }
+  ],
+  "metadata": {
+    "generated_by": "HR Change Detection System",
+    "sync_id": "SYNC_20260923_205534",
+    "status": "processed",
+    "processed_timestamp": "2026-09-23T20:55:41.028309",
+    "processed_by": "Payroll System Agent"
+  }
+}
