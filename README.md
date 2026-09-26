@@ -1,4 +1,4 @@
-# change-detection-system
+# Multi-Agent change-detection-system
 
 A proof-of-concept **change detection system** for employee data, built with **MCP (Model Context Protocol)**, **LangChain**, and **LangGraph**. It watches an HR system for changes, detects them automatically, and syncs them through to a Payroll system — coordinated end-to-end by an LLM supervisor agent.
 
